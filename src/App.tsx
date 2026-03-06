@@ -488,7 +488,7 @@ export default function App() {
           <div className="absolute inset-0 border-[24px] border-double border-black/5 pointer-events-none" />
           <h1 className="font-display text-4xl text-black mb-8">КВЕСТ ЗАВЕРШЕН</h1>
           <p className="font-serif text-2xl text-black/80 mb-12 italic">
-            Благодарим за прохождение квеста!
+            Спасибо за прохождение квеста!
           </p>
           <div className="w-24 h-px bg-black/20 mx-auto mb-8" />
           <p className="font-display text-lg text-black/60 uppercase tracking-widest">
