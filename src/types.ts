@@ -64,7 +64,7 @@ export const INITIAL_CHARACTERS: Character[] = [
     name: "Вальдемар",
     race: "Эльф",
     gender: Gender.Male,
-    portrait: "/Images/COW_M.png",
+    portrait: "/images/cow_m.png",
     isAvailable: true
   },
   {
@@ -73,7 +73,7 @@ export const INITIAL_CHARACTERS: Character[] = [
     name: "Троггви",
     race: "Гном",
     gender: Gender.Male,
-    portrait: "/Images/BRA_M.png",
+    portrait: "/images/bra_m.png",
     isAvailable: true
   },
   {
@@ -82,7 +82,7 @@ export const INITIAL_CHARACTERS: Character[] = [
     name: "Феофан",
     race: "Человек",
     gender: Gender.Male,
-    portrait: "/Images/CH_M.png",
+    portrait: "/images/ch_m.png",
     isAvailable: true
   },
   {
@@ -91,26 +91,26 @@ export const INITIAL_CHARACTERS: Character[] = [
     name: "Кир",
     race: "Человек",
     gender: Gender.Male,
-    portrait: "/Images/INF_M.png",
+    portrait: "/images/inf_m.png",
     isAvailable: true
   }
 ];
 
 export const GENDER_DEFAULTS: Record<Trait, Record<Gender, { name: string; genitiveName: string; accusativeName: string; portrait: string }>> = {
   [Trait.Coward]: {
-    [Gender.Male]: { name: "Вальдемар", genitiveName: "Вальдемара", accusativeName: "Вальдемара", portrait: "/Images/COW_M.png" },
-    [Gender.Female]: { name: "Флоримель", genitiveName: "Флоримель", accusativeName: "Флоримель", portrait: "/Images/COW_F.png" }
+    [Gender.Male]: { name: "Вальдемар", genitiveName: "Вальдемара", accusativeName: "Вальдемара", portrait: "/images/cow_m.png" },
+    [Gender.Female]: { name: "Флоримель", genitiveName: "Флоримель", accusativeName: "Флоримель", portrait: "/images/cow_f.png" }
   },
   [Trait.Brave]: {
-    [Gender.Male]: { name: "Троггви", genitiveName: "Троггви", accusativeName: "Троггви", portrait: "/Images/BRA_M.png" },
-    [Gender.Female]: { name: "Фрейя", genitiveName: "Фрейи", accusativeName: "Фрейю", portrait: "/Images/BRA_F.png" }
+    [Gender.Male]: { name: "Троггви", genitiveName: "Троггви", accusativeName: "Троггви", portrait: "/images/bra_m.png" },
+    [Gender.Female]: { name: "Фрейя", genitiveName: "Фрейи", accusativeName: "Фрейю", portrait: "/images/bra_f.png" }
   },
   [Trait.Charismatic]: {
-    [Gender.Male]: { name: "Феофан", genitiveName: "Феофана", accusativeName: "Феофана", portrait: "/Images/CH_M.png" },
-    [Gender.Female]: { name: "Анна", genitiveName: "Анны", accusativeName: "Анну", portrait: "/Images/CH_F.png" }
+    [Gender.Male]: { name: "Феофан", genitiveName: "Феофана", accusativeName: "Феофана", portrait: "/images/ch_m.png" },
+    [Gender.Female]: { name: "Анна", genitiveName: "Анны", accusativeName: "Анну", portrait: "/images/ch_f.png" }
   },
   [Trait.Infamous]: {
-    [Gender.Male]: { name: "Кир", genitiveName: "Кира", accusativeName: "Кира", portrait: "/Images/INF_M.png" },
-    [Gender.Female]: { name: "Аиса", genitiveName: "Аисы", accusativeName: "Аису", portrait: "/Images/INF_F.png" }
+    [Gender.Male]: { name: "Кир", genitiveName: "Кира", accusativeName: "Кира", portrait: "/images/inf_m.png" },
+    [Gender.Female]: { name: "Аиса", genitiveName: "Аисы", accusativeName: "Аису", portrait: "/images/inf_f.png" }
   }
 };
