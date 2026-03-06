@@ -18,6 +18,14 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
     e.dataTransfer.setData('characterId', id);
   };
 
+  const getImagePath = (path: string | undefined) => {
+    if (!path) return "";
+    if (path.startsWith("http")) return path;
+    const base = (import.meta as any).env.BASE_URL || "/";
+    const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+    return base + cleanPath;
+  };
+
   return (
     <div className="w-full h-full flex flex-col">
       <h2 className="font-display text-2xl text-black/80 mb-6 text-center uppercase tracking-widest">
@@ -39,10 +47,9 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
             whileHover={char.isAvailable ? { scale: 1.02 } : {}}
           >
             <img 
-              src={char.portrait} 
+              src={getImagePath(char.portrait)} 
               alt={char.name} 
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-1 text-center">
               <p className="font-display text-[10px] text-white uppercase truncate leading-tight">{char.name}</p>

@@ -41,6 +41,14 @@ export const CharacterCustomization: React.FC<CharacterCustomizationProps> = ({
     { id: Difficulty.Hard, icon: ShieldAlert, label: "Высокий", color: "text-red-500", active: "bg-red-900/40 border-red-500 shadow-[0_0_15px_rgba(239,68,68,0.2)]" }
   ];
 
+  const getImagePath = (path: string | undefined) => {
+    if (!path) return "";
+    if (path.startsWith("http")) return path;
+    const base = (import.meta as any).env.BASE_URL || "/";
+    const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+    return base + cleanPath;
+  };
+
   return (
     <div className="min-h-screen w-full bg-[#1a1a1a] p-8 flex flex-col items-center overflow-y-auto">
       <motion.h1 
@@ -87,10 +95,9 @@ export const CharacterCustomization: React.FC<CharacterCustomizationProps> = ({
           >
             <div className="relative aspect-[4/5] w-full max-w-[200px] mx-auto overflow-hidden rounded border border-amber-900/30">
               <img 
-                src={char.portrait} 
+                src={getImagePath(char.portrait)} 
                 alt={char.name} 
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-1 text-center font-display text-[10px] text-amber-200 uppercase tracking-tighter">
                 {char.race}

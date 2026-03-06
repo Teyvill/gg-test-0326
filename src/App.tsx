@@ -116,6 +116,14 @@ export default function App() {
     return 13;
   }, [state.difficulty]);
 
+  const getImagePath = (path: string | undefined) => {
+    if (!path) return "";
+    if (path.startsWith("http")) return path;
+    const base = (import.meta as any).env.BASE_URL || "/";
+    const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+    return base + cleanPath;
+  };
+
   const currentCharacter = useMemo(() => {
     const id = state.step <= GameStep.Encounter1Result ? state.firstChoiceId : state.secondChoiceId;
     return state.characters.find(c => c.id === id);
@@ -459,7 +467,7 @@ export default function App() {
           <div className="flex flex-col items-center gap-6">
             <h2 className="font-display text-3xl text-black/80 text-center uppercase">Испытание</h2>
             <div className="w-64 aspect-[4/5] rounded-lg border-4 border-amber-900/20 overflow-hidden shadow-2xl">
-              <img src={currentCharacter?.portrait} alt={currentCharacter?.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <img src={getImagePath(currentCharacter?.portrait)} alt={currentCharacter?.name} className="w-full h-full object-cover" />
             </div>
             <p className="font-display text-xl text-amber-900">{currentCharacter?.name}</p>
           </div>
@@ -508,10 +516,9 @@ export default function App() {
         <div className="w-full h-full flex flex-col items-center">
           <div className="w-full aspect-[4/5] rounded-lg overflow-hidden shadow-2xl border-4 border-amber-900/10 mb-4">
             <img 
-              src={currentStoryData?.image} 
+              src={getImagePath(currentStoryData?.image)} 
               alt="Story" 
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
             />
           </div>
           <h2 className="font-display text-2xl text-black/80 text-center uppercase tracking-widest">
